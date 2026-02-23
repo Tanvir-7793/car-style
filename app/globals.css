@@ -14,7 +14,8 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
-  --font-space: 'Space Grotesk', sans-serif;
+  --font-space: var(--font-space);
+  --font-dm-serif: var(--font-dm-serif);
 }
 
 body {
