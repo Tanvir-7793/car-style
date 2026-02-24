@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, ChevronRight, Plus } from "lucide-react";
-import BlurText from "./BlurText";
 import ScrollFloat from "./ScrollFloat";
 
 const premiumServices = [
@@ -104,9 +103,6 @@ const PremiumServices = ({ view = "home" }: { view?: "home" | "full" }) => {
     const isFull = view === "full";
     const displayedServices = isFull ? premiumServices : premiumServices.slice(0, 2);
 
-    const handleAnimationComplete = () => {
-        console.log('Animation completed!');
-    };
 
     return (
         <section id="services" className={`py-24 ${isFull ? 'bg-transparent' : 'bg-blue-50'}`}>
@@ -120,21 +116,10 @@ const PremiumServices = ({ view = "home" }: { view?: "home" | "full" }) => {
                         stagger={0.03}
                     >
                         <span className="text-primary font-bold uppercase tracking-widest text-sm block mb-4">Professional Detailing</span>
-                        <BlurText
-                            text="Our Premium Services"
-                            delay={100}
-                            animateBy="words"
-                            direction="top"
-                            onAnimationComplete={handleAnimationComplete}
-                            className="text-4xl md:text-5xl font-bold mb-6 justify-center"
-                        />
-                        <BlurText
-                            text="Tailored solutions for every vehicle. From daily drivers to luxury vehicles, we offer best-in-class care that fits your needs."
-                            delay={150}
-                            animateBy="words"
-                            direction="top"
-                            className="text-gray-600 text-lg justify-center max-w-2xl"
-                        />
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Premium Services</h2>
+                        <p className="text-gray-600 text-lg max-w-2xl">
+                            Tailored solutions for every vehicle. From daily drivers to luxury vehicles, we offer best-in-class care that fits your needs.
+                        </p>
                     </ScrollFloat>
                 </div>
 
