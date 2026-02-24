@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, ChevronRight, Plus } from "lucide-react";
 import BlurText from "./BlurText";
+import ScrollFloat from "./ScrollFloat";
 
 const premiumServices = [
     {
@@ -111,28 +112,30 @@ const PremiumServices = ({ view = "home" }: { view?: "home" | "full" }) => {
         <section id="services" className={`py-24 ${isFull ? 'bg-transparent' : 'bg-blue-50'}`}>
             <div className="max-w-7xl mx-auto px-8">
                 <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
-                    <BlurText
-                        text="Professional Detailing"
-                        delay={50}
-                        animateBy="words"
-                        direction="top"
-                        className="text-primary font-bold uppercase tracking-widest text-sm block mb-4 justify-center"
-                    />
-                    <BlurText
-                        text="Our Premium Services"
-                        delay={100}
-                        animateBy="words"
-                        direction="top"
-                        onAnimationComplete={handleAnimationComplete}
-                        className="text-4xl md:text-5xl font-bold mb-6 justify-center"
-                    />
-                    <BlurText
-                        text="Tailored solutions for every vehicle. From daily drivers to luxury vehicles, we offer best-in-class care that fits your needs."
-                        delay={150}
-                        animateBy="words"
-                        direction="top"
-                        className="text-gray-600 text-lg justify-center max-w-2xl"
-                    />
+                    <ScrollFloat
+                        animationDuration={0.1}
+                        ease='back.inOut(2)'
+                        scrollStart='center bottom+=50%'
+                        scrollEnd='bottom bottom-=50%'
+                        stagger={0.03}
+                    >
+                        <span className="text-primary font-bold uppercase tracking-widest text-sm block mb-4">Professional Detailing</span>
+                        <BlurText
+                            text="Our Premium Services"
+                            delay={100}
+                            animateBy="words"
+                            direction="top"
+                            onAnimationComplete={handleAnimationComplete}
+                            className="text-4xl md:text-5xl font-bold mb-6 justify-center"
+                        />
+                        <BlurText
+                            text="Tailored solutions for every vehicle. From daily drivers to luxury vehicles, we offer best-in-class care that fits your needs."
+                            delay={150}
+                            animateBy="words"
+                            direction="top"
+                            className="text-gray-600 text-lg justify-center max-w-2xl"
+                        />
+                    </ScrollFloat>
                 </div>
 
                 <div className={`grid grid-cols-1 ${isFull ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-8 transition-all duration-500`}>
