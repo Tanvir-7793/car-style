@@ -14,9 +14,13 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "CAR STYLE | Premium Car Detailing & Washing Services",
+  title: "CAR STYLE | Premium Detailing Studio",
   description: "CAR STYLE offers professional car care that keeps your vehicle looking pristine. Premium washing, detailing, and protection services.",
 };
+
+import TopInfoBar from "@/components/TopInfoBar";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({
   children,
@@ -26,7 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${dmSerif.variable}`}>
       <body className="antialiased">
+        <TopInfoBar />
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
